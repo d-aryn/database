@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Колесо фортуны</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .wrapper {
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+  }
+
+  #wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 6px solid #333;
+    transition: transform 5s cubic-bezier(0.25, 1, 0.5, 1);
+    background: conic-gradient(
+      #ff7675 0deg 60deg,
+      #74b9ff 60deg 120deg,
+      #55efc4 120deg 180deg,
+      #ffeaa7 180deg 240deg,
+      #fd79a8 240deg 300deg,
+      #a29bfe 300deg 360deg
+    );
+  }
+
+  button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>Испытай удачу 🎯</h2>
+
+<div class="wrapper">
+  <div class="arrow">⬇️</div>
+  <div id="wheel"></div>
+</div>
+
+<button onclick="spin()">Крутить</button>
+
+<script>
+const prizes = [
+  "5% скидка",
+  "10% скидка",
+  "Подарок",
+  "20% скидка",
+  "Попробуй ещё",
+  "НУЖНЫЙ ПРИЗ"
+];
+
+// 👉 индекс нужного варианта (0 — первый)
+const targetIndex = 5;
+
+let rotation = 0;
+
+function spin() {
+  const segments = prizes.length;
+  const anglePerSegment = 360 / segments;
+
+  const fullSpins = 6 * 360;
+
+  const targetAngle =
+    fullSpins +
+    (360 - (targetIndex * anglePerSegment + anglePerSegment / 2));
+
+  rotation += targetAngle;
+
+  document.getElementById("wheel").style.transform =
+    `rotate(${rotation}deg)`;
+
+  setTimeout(() => {
+    alert("Вы выиграли: " + prizes[targetIndex]);
+  }, 5000);
+}
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Колесо фортуны</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Испытай удачу 🎯</h2>
+
+<div class="wheel-container">
+  <div class="pointer"></div>
+  <div id="wheel"></div>
+</div>
+
+<button onclick="spin()">Крутить</button>
+
+<script src="script.js"></script>
+</body>
+</html>
